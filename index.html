@@ -956,7 +956,7 @@
       <div class="hero-split">
         <div class="hero-visual reveal">
           <div class="photo-placeholder">
-            <img src="IMG-20260512-WA0025.jpg">
+            <img src="IMG-20260512-WA0025.png">
           </div>
         </div>
         <div class="hero-content reveal">
@@ -1090,7 +1090,7 @@
           <div class="card-grid">
             <div class="card">
               <div class="img-swap">
-                <img class="img-a" src="game-day.png" alt="cover">
+                <img class="img-a" src="game-day-mockup.png" alt="cover">
                 <img class="img-b" src="game-day-mockup.png" alt="mockup">
               </div>
               <h2>Leading New Narratives at Home</h2>
@@ -1115,6 +1115,7 @@
               <div class="tags">
                 <span class="tag applied">HTML & CSS</span>
                 <span class="tag applied">Personal Branding</span>
+                <span class="tag applied">AI-Assisted Building</span>
               </div>
             </div>
             <!--<div class="card">
@@ -1142,8 +1143,7 @@
         <h1>Supportive Systems and Structures</i></h1>
         <p class="sub" id="projects-sub">When an idea is ready to grow, systems
           protect creative energy, clear up your bandwidth and set the direction.
-        </p>
-        <p class="sub" id="projects-sub">See below for featured examples.
+          <br> See below for featured examples.
         </p>
       </div>
 
@@ -1159,6 +1159,10 @@
               </div>
               <h2>Offer-Ladder Design</h2>
               <p>Moving from one core offer to serving people at multiple levels, without doubling the workload.</p>
+              <div class="tags">
+                <span class="tag applied">Value Ladder Planning</span>
+                <span class="tag applied">AI-Assisted Building</span>
+              </div>
             </div>
             <div class="card">
               <div class="img-swap">
@@ -1169,6 +1173,10 @@
               <p>Zooming out on the full path from a customer's first thought to fulfillment, and identifying
                 bottlenecks.
               </p>
+              <div class="tags">
+                <span class="tag applied">Customer Journey Mapping</span>
+                <span class="tag applied">Workflow Management</span>
+              </div>
             </div>
             <!--<div class="card">
               <div class="img-placeholder">
@@ -1213,7 +1221,7 @@
         </div>
         <div class="about-visual reveal">
           <div class="photo-placeholder">
-            <img class="img-a" src="profile2.jpg" alt="photo of me">
+            <img class="img-a" src="profile3.png" alt="photo of me">
           </div>
         </div>
       </div>
@@ -1401,9 +1409,9 @@ SKILLS
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-          if (e.isIntersecting) {e.target.classList.add('in'); io.unobserve(e.target);}
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
         });
-      }, {threshold: 0.12});
+      }, { threshold: 0.12 });
       reveals.forEach(el => io.observe(el));
     } else {
       reveals.forEach(el => el.classList.add('in'));
