@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaia C Murray</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+
+  <style>
+    :root {
+      --canvas: #f1d8b8;
+      --canvas-deep: #6B2517;
+      --card: #ffefd9;
+      --ink: #311307;
+      --ink-soft: #C07A43;
+      --ink-softer: #dbb095;
+      --ink-softest: #f1d8b8;
+      --thread: #d48b60;
+      --thread2: #9D512B;
+      --line: #daab8d;
+      --radius: 14px;
+      --maxw: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Hedvig Letters Serif", serif;
+      font-weight: 500;
+      line-height: 1.12;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 {
+      font-size: clamp(75px, 4.4vw, 54px);
+      max-width: 14ch;
+      color: var(--ink-softest);
+      letter-spacing: 1px;
+    }
+
+    .validation h1 {
+      font-size: 65px;
+      color: var(--canvas-deep);
+      letter-spacing: 1px;
+    }
+
+    #how-i-work h1 {
+      font-size: 65px;
+      color: var(--ink-softest);
+      letter-spacing: 1px;
+    }
+
+    .foundation h1 {
+      font-size: 65px;
+      color: var(--thread2);
+      letter-spacing: 1px;
+    }
+
+    .about-text h1 {
+      color: var(--ink-softest);
+      font-size: 65px;
+      letter-spacing: 1px;
+    }
+
+    .projects1 h1 {
+      color: var(--thread2);
+      font-size: 65px;
+      letter-spacing: 1px;
+    }
+
+    .projects h1 {
+      color: var(--ink-softest);
+      font-size: 65px;
+      letter-spacing: 1px;
+    }
+
+    .contact h1 {
+      font-size: clamp(60px, 4.4vw, 54px);
+      color: var(--thread2);
+    }
+
+    .eyebrow {
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--thread);
+      font-weight: 500;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ---------- NAV ---------- */
+    header.nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--ink);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--ink-softer);
+    }
+
+    .nav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .mark svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .mark span {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--canvas);
+    }
+
+    nav.links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav.links a {
+      text-decoration: none;
+      color: var(--canvas);
+      font-size: 16px;
+      font-weight: 500;
+      transition: color .15s ease;
+    }
+
+    nav.links a:hover {
+      color: var(--ink-softer);
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav .links {
+        display: none;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--canvas-deep);
+      color: var(--ink-softest);
+      padding: 11px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border: solid 3px var(--thread2);
+      cursor: pointer;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    .btn:hover {
+      background: var(--thread2);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--ink-softest);
+      padding: 11px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border: solid 3px var(--thread);
+      cursor: pointer;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+
+    .btn-ghost:hover {
+      background: var(--ink);
+      color: var(--thread);
+      border: solid 3px var(--thread);
+      transform: translateY(-1px);
+    }
+
+    #linkedin-btn {
+      background-color: var(--canvas-deep);
+      border: solid 3px var(--thread);
+    }
+
+    #linkedin-btn:hover {
+      background-color: var(--thread);
+    }
+
+    /* ---------- LAYOUT / THREAD RAIL ---------- */
+    .section {
+      position: relative;
+      padding: 96px 0;
+    }
+
+    .section.alt {
+      background: var(--canvas-deep);
+    }
+
+    .section.alt2 {
+      background-color: var(--thread);
+
+    }
+
+    .section-inner {
+      position: relative;
+      padding-left: 0;
+    }
+
+    @media (max-width:980px) {
+      .wrap {
+        padding: 0 22px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 0;
+      overflow: hidden;
+      background-color: var(--ink);
+    }
+
+    .hero-split {
+      display: flex;
+      min-height: 640px;
+    }
+
+    .hero-visual {
+      position: relative;
+      background: var(--ink);
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+      flex: 1 1 50%;
+    }
+
+    .hero-content {
+      padding: 88px clamp(24px, 6vw, 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 1 50%;
+    }
+
+    @media (max-width:900px) {
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1,
+      .validation h1,
+      #about h1,
+      .projects h1,
+      .projects1 h1,
+      .contact h1,
+      #how-i-work h1 {
+        font-size: 50px;
+      }
+
+      #hero-h2 {
+        font-size: 28px;
+        line-height: 1.1;
+      }
+
+      .hero-split {
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .hero-visual {
+        order: -1;
+        min-height: 320px;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-content {
+        padding: 48px 22px 56px;
+        align-items: center;
+      }
+
+      .hero-card {
+        margin-left: 0;
+        box-shadow: none;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .hero-visual {
+        min-height: 0;
+        height: auto;
+        padding: 0;
+      }
+
+      .hero-visual .photo-placeholder {
+        width: 100%;
+        height: auto;
+        padding: 0;
+      }
+
+      .hero-visual .photo-placeholder img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    .sub {
+      font-family: "Inter", sans-serif;
+      margin-top: 22px;
+      font-size: 22px;
+      color: var(--ink-softer);
+    }
+
+    #foundation-sub {
+      color: var(--ink);
+    }
+
+    #validation-sub {
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    .how-card sub {
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    #projects-sub {
+      color: var(--ink-softer);
+      font-size: 22px;
+      margin-bottom: 26px;
+    }
+
+    #projects1-sub {
+      color: var(--ink);
+      font-size: 20px;
+      margin-bottom: 26px;
+    }
+
+    #contact-sub {
+      color: var(--ink);
+      font-size: 22px;
+      margin-bottom: 26px;
+    }
+
+    .list {
+      text-align: left;
+    }
+
+    .hero .cta-row {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-eyebrow {
+      font-family: "Hedvig Letters Serif", serif;
+      margin-bottom: 16px;
+      color: var(--ink-softer);
+      font-size: 35px;
+      text-transform: none;
+    }
+
+    .photo-placeholder {
+      border: 1.5px dashed var(--ink-soft);
+      border-radius: var(--radius);
+      background: var(--card);
+      aspect-ratio: 4/5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    .hero-visual .photo-placeholder,
+    .about-visual .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+      border: none;
+    }
+
+    .hero-visual .photo-placeholder svg,
+    .about-visual .photo-placeholder svg {
+      width: 44px;
+      height: 44px;
+    }
+
+    .hero-visual .photo-placeholder .ph-label,
+    .about-visual .photo-placeholder .ph-label {
+      font-size: 13px;
+      max-width: 26ch;
+    }
+
+    .photo-placeholder svg {
+      width: 34px;
+      height: 34px;
+      opacity: .55;
+    }
+
+    .photo-placeholder .ph-label {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      max-width: 22ch;
+    }
+
+    .img-placeholder {
+      border-radius: 10px;
+      background: var(--canvas);
+      aspect-ratio: 16/10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .img-placeholder svg {
+      width: 24px;
+      height: 24px;
+      opacity: .5;
+    }
+
+    .img-placeholder span {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+
+    .img-swap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      aspect-ratio: 16/12;
+      margin-bottom: 16px;
+    }
+
+    .img-swap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity .35s ease;
+    }
+
+    .img-swap img.img-b {
+      opacity: 0;
+    }
+
+    .img-swap:hover img.img-b {
+      opacity: 1;
+    }
+
+    /* ---------- FOUNDATION ----------*/
+    .foundation,
+    .validation,
+    .projects,
+    .projects1,
+    #how-i-work {
+      text-align: center;
+    }
+
+    .projects {
+      background-color: var(--thread2);
+    }
+
+    .projects1 {
+      background-color: var(--canvas);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--thread);
+    }
+
+    .box-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--thread);
+      margin: 0 0 16px;
+    }
+
+    .box-value {
+      font-family: "Hedvig Letters Serif", serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--thread2);
+      margin: 0 0 12px;
+    }
+
+    .box-desc {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 64px 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sub {
+        margin-bottom: 44px;
+      }
+    }
+
+    /* ---------- STATE SECTIONS ---------- */
+    .state-head {
+      max-width: 62ch;
+      margin-bottom: 44px;
+    }
+
+    .state-head h2 {
+      font-size: clamp(35px, 3vw, 36px);
+      margin-top: 10px;
+    }
+
+    .state-head p {
+      color: var(--ink-soft);
+      margin-top: 14px;
+      font-size: 17px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    @media (max-width:760px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .card h2 {
+      margin-top: 20px;
+      font-size: 30px;
+      color: var(--thread2);
+    }
+
+    .card p {
+      color: var(--ink);
+      font-size: 18px;
+      flex: 1;
+      padding: 0px 40px;
+    }
+
+    .tag {
+      align-self: flex-start;
+      margin-top: 16px;
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 100px;
+      background: #ffceb7;
+      color: var(--ink);
+    }
+
+    .tag.applied {
+      background: var(--ink-softer);
+      color: var(--ink);
+    }
+
+    .tags {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-self: center;
+
+    }
+
+    /* ---------- HOW I WORK ---------- */
+    .how-grid {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 26px;
+      margin-top: 36px;
+    }
+
+    @media (max-width:760px) {
+      .how-grid {
+        grid-template-rows: 1fr;
+      }
+    }
+
+    .how-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      background: var(--canvas);
+    }
+
+    .how-card .num {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      color: var(--canvas-deep);
+      letter-spacing: .1em;
+    }
+
+    .how-card h2 {
+      margin-top: 10px;
+      color: var(--ink-soft);
+      font-size: 30px;
+    }
+
+    .how-card p {
+      color: var(--ink);
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .how-lede {
+      max-width: 62ch;
+      font-size: 17px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-menu {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 36px 0 28px;
+    }
+
+    .cat-btn {
+      padding: 10px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--line);
+      background: var(--card);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--ink-soft);
+      transition: all .15s ease;
+    }
+
+    .cat-btn.active {
+      background: var(--thread);
+      border-color: var(--thread);
+      color: var(--ink-softest);
+    }
+
+    .skills-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 30px;
+      min-height: 180px;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 28px;
+    }
+
+    @media (max-width:640px) {
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed var(--line);
+      padding-bottom: 10px;
+    }
+
+    .skill-row .name {
+      font-weight: 600;
+      font-size: 15.5px;
+    }
+
+    .skill-row .yrs {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .skills-panel-title {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--canvas-deep);
+      margin-bottom: 18px;
+    }
+
+    /* ---------- ABOUT ---------- */
+    #intro {
+      background-color: var(--ink);
+    }
+
+    .about-split {
+      display: flex;
+      min-height: 500px;
+    }
+
+    .about-content {
+      padding: 88px clamp(24px, 6vw, 72px);
+      margin: 30px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 1 50%;
+    }
+
+    .about-visual {
+      position: relative;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      flex: 1 1 50%;
+    }
+
+    .about-text p {
+      font-size: 20px;
+      color: var(--ink-softer);
+      margin-bottom: 16px;
+    }
+
+    @media (max-width:900px) {
+      .about-split {
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .about-visual {
+        min-height: 300px;
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .about-content {
+        padding: 48px 22px 56px;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+
+
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      text-align: center;
+      padding: 110px 0;
+      background-color: var(--canvas);
+      border-top: solid 5px var(--thread);
+      border-bottom: solid 5px var(--thread);
+    }
+
+    .contact .cta-row {
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    footer {
+      padding: 28px 0;
+      background-color: var(--ink);
+
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--canvas);
+    }
+
+    footer .mark span {
+      color: var(--canvas);
+    }
+
+    /* reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="mark">
+        <span>KAIA C MURRAY</span>
+      </a>
+
+      <nav class="links">
+        <a href="#how-i-work">How I Work</a>
+        <a href="#projects1">Featured Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="hero-split">
+        <div class="hero-visual reveal">
+          <div class="photo-placeholder">
+            <img src="IMG-20260512-WA0025.jpg">
+          </div>
+        </div>
+        <div class="hero-content reveal">
+          <div class="eyebrow hero-eyebrow" id="hero-h2">You're More Capable Than You Know.</div>
+          <h1>Let's Make That Undeniable.</h1>
+          <p class="sub">With partnership and systems for turning untapped potential into proof that's in front of you.
+          </p>
+          <div class="cta-row">
+            <a href="#contact" class="btn" id="hero-btn">Let's Talk About What's Next →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--VALIDATION-->
+    <section class="section validation" id="validation">
+      <div class="wrap reveal">
+        <h1>Back Yourself, Your Vision and What Actually Matters to You</h1>
+        <p class="sub" id="validation-sub">We're each built to leave a distinct mark on the world. But most days don't
+          ask for that from us. They ask for well-executed tasks, a cleared up inbox and the version of you that fits
+          the role while the fuller
+          version waits its turn.</p>
+
+        <p class="sub" id="validation-sub">It's not about stepping away from the things that need to be done, especially
+          if you're great at it. It's about
+          knowing in your bones that the path you're on is meant for you and that you've fully
+          discovered what <i>you</i> are capable of. Then having someone in your corner who can clear the path with you.
+        </p>
+
+        <p class="sub" id="validation-sub">I help you map what's needed to move through the messy middle of turning the
+          vision sitting in your
+          head into
+          something real-world — tested, imperfect at first, and unmistakably yours.
+        </p>
+      </div>
+    </section>
+
+    <!--HOW I WORK -->
+    <section class="section alt" id="how-i-work">
+      <div class="wrap">
+        <div class="section-inner reveal">
+          <h1>The Access Points</h1>
+          <p class="sub" style="margin-top:16px;">This isn't a conversation about what makes you special. It's a process
+            of shaping the environment where your values, ideas and capabilities are grounded and primed to grow. Two
+            ways I help anchor that:</p>
+          <div class="how-grid">
+            <div class="how-card">
+              <h2>Turning Ambitious Ideas Into Real World Projects You Can Grow Through</h2>
+              <p class="sub">Getting grounded in what actually matters to you, then shaping a creative project — a book,
+                a platform, a body of work — that's rooted in that and built to grow your capability as you make it.</p>
+            </div>
+            <div class="how-card">
+              <h2>Mapping the Scaffolding that Holds Up Your Growing Vision</h2>
+              <p class="sub">Vision without structure eventually fills up your time and mental bandwidth. I help map the
+                systems — Notion setups, offer
+                design, customer journey — so the thing you're building is supported and supports you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: WHAT I BELIEVE
+    <section class="section alt">
+      <div class="about-split">
+        <div class="about-content reveal" style="position:relative;">
+          <div class="about-text" style="padding: 0px 44px" ;>
+            <h1>Shift Your Uniqueness and Capabilities to the Forefront</h1>
+            <p>This isn't a fluffy conversation about what makes you special. It's a process
+              of getting grounded in your values, redefining how you know yourself and turning ideas into tangible proof
+              that you're capable of more than you've been set up for.</p>
+            <p>I'll help you shape creative projects that are rooted in what matters to you,
+              are designed to grow your creative capacity and support you in making the distinct mark you're here to
+              make.</p>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="photo-placeholder">
+            <img class="img-a" src="profile2.jpg" alt="cover">
+          </div>
+        </div>
+      </div>
+    </section>-->
+
+    <!--Foundation
+    <section class="section foundation" id="foundation">
+      <div class="wrap reveal">
+        <h1>Here's What Strengthens as You Go</h1>
+        <p class="sub" id="foundation-sub">By going after your vision, you enter new arenas that test and strengthen
+          your inner foundation to develop:</p>
+        <div class="grid">
+          <div class="box">
+            <p class="box-value">Unshakeable Grounding</p>
+            <p class="box-desc">Rooted in who you are. Reinforced by skills and a mindset for navigating never-ending
+              change.</p>
+          </div>
+          <div class="box">
+            <p class="box-value">Values-Backed Tenacity
+            </p>
+            <p class="box-desc">Because it's deeply connected to what drives you and the level you want to know yourself
+              at.</p>
+          </div>
+          <div class="box">
+            <p class="box-value">Undeniable Capability</p>
+            <p class="box-desc">That is tested through challenging limitations and clarified through bringing new ideas
+              to life.</p>
+          </div>
+          <div class="box">
+            <p class="box-value">Leadership Towards Change
+            </p>
+            <p class="box-desc">That moves you through the messy middle of growth towards the vision you're seeing.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>-->
+
+    <!--PROJECTS-->
+    <section class="section projects1" id="projects1">
+      <div class="wrap reveal">
+        <h1>Featured Creative Projects</h1>
+        <p class="sub" id="projects1-sub">Check out examples below of how I've used creative projects to bring values
+          and capabilities to the forefront.
+        </p>
+      </div>
+
+      <!--STAGE A-->
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="game-day.png" alt="cover">
+                <img class="img-b" src="game-day-mockup.png" alt="mockup">
+              </div>
+              <h2>Leading New Narratives at Home</h2>
+              <p>A multilingual story for bringing language learning into bedtime, teaching the value of leading new
+                narratives, and developing creative skills.</p>
+              <div class="tags">
+                <span class="tag applied">Storytelling</span>
+                <span class="tag applied">Canva</span>
+                <span class="tag applied">Vector Art</span>
+                <span class="tag applied">Creative Agency</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="website-image.png" alt="cover">
+                <img class="img-b" src="website-image.png" alt="mockup">
+              </div>
+              <h2>From CV to Impact-Led Website</h2>
+              <p>A tangible example of shifting away from the default way things are done, getting clear on your unique
+                value and bringing that to the forefront.
+              </p>
+              <div class="tags">
+                <span class="tag applied">HTML & CSS</span>
+                <span class="tag applied">Personal Branding</span>
+              </div>
+            </div>
+            <!--<div class="card">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M3 15l5-4 4 3 5-5 4 4" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+                <span>Add: photographer site / offer ladder screenshot</span>
+              </div>
+              <h3>Offer-ladder booking site</h3>
+              <p>Built for a two-founder photography business that couldn't scale on their time alone — an entry-level
+                engagement shoot, the main wedding-day offer, and albums and frames designed in as natural upsells, not
+                afterthoughts.</p>
+              <span class="tag applied">Self-built project</span>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </section>
+
+    <!--PROJECTS B-->
+    <section class="section projects" id="projects">
+      <div class="wrap reveal">
+        <h1>Supportive Systems and Structures</i></h1>
+        <p class="sub" id="projects-sub">When an idea is ready to grow, systems
+          protect creative energy, clear up your bandwidth and set the direction.
+        </p>
+        <p class="sub" id="projects-sub">See below for featured examples.
+        </p>
+      </div>
+
+      <!--STAGE B-->
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="website-example1.png" alt="cover">
+                <img class="img-b" src="website-example2.png" alt="mockup">
+              </div>
+              <h2>Offer-Ladder Design</h2>
+              <p>Moving from one core offer to serving people at multiple levels, without doubling the workload.</p>
+            </div>
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="website-2.png" alt="cover">
+                <img class="img-b" src="website-1.png" alt="mockup">
+              </div>
+              <h2>End-to-End Journey Mapping</h2>
+              <p>Zooming out on the full path from a customer's first thought to fulfillment, and identifying
+                bottlenecks.
+              </p>
+            </div>
+            <!--<div class="card">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M3 15l5-4 4 3 5-5 4 4" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+                <span>Add: photographer site / offer ladder screenshot</span>
+              </div>
+              <h3>Offer-ladder booking site</h3>
+              <p>Built for a two-founder photography business that couldn't scale on their time alone — an entry-level
+                engagement shoot, the main wedding-day offer, and albums and frames designed in as natural upsells, not
+                afterthoughts.</p>
+              <span class="tag applied">Self-built project</span>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section alt" id="intro">
+      <div class="about-split">
+
+
+        <div class="about-content reveal" id="about" style="position:relative;">
+
+          <div class="about-text" style="padding: 0px 40px" ;>
+            <h1>Hey, I'm Kaia</h1>
+            <p>And I believe we're capable of more than we know.</p>
+            <p>My own path has taken me around the world expanding my worldview, stretched me through a
+              dream role supporting business growth and challenged every part of who I am through loss. Now I'm
+              redefining what's next for me through career transition.</p>
+            <p>I'm tapping deeper into what I'm capable of in real time.</p>
+            <p>That has meant turning an idea into a legacy-led book and rebuilding my CV into a website that brings my
+              values to the forefront.</p>
+            <p>What I bring is lived experience, unshakeable curiosity for what's possible,
+              and ways of mapping the
+              systems, structures, and
+              projects that move someone from "I know I'm capable of more" to "here's the proof, and I made it."</p>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="photo-placeholder">
+            <img class="img-a" src="profile2.jpg" alt="photo of me">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="wrap reveal">
+        <h1>Let's Connect</h1>
+        <p id="contact-sub">Come over and connect on LinkedIn where I share conversations for redefining your
+          capabilities,
+          backing your ideas through the messy middle of growth and leading a vision where your values are the
+          foundation.
+        </p>
+        <div class="cta-row">
+          <a href="https://www.linkedin.com/in/kaiacmurray/" class="btn" id="linkedin-btn">
+            Let's Talk About What's Next
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="#top" class="mark">
+        <span><!--ADD TEXT HERE--></span>
+      </a>
+      <span><!--ADD TEXT HERE--></span>
+    </div>
+  </footer>
+
+  <!--STAGE B
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="eyebrow">Where you are — 2 of 3</div>
+          <div class="state-head">
+            <h2>You've built something great and you're ready for the next level, but need clarity.</h2>
+            <p>You know you should be spending your time on the parts only you can do — but something operational always
+              pulls you back in. Nothing's broken enough to be an emergency, so fixing it never becomes the priority. It
+              just quietly costs you time, every week, indefinitely.</p>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Weekly email system</h3>
+              <p>Replaced a weekly scramble — "what do we share, where do we find it" — with a repeatable system,
+                permanently removing a recurring drain rather than solving it once.</p>
+              <span class="tag">Real business result</span>
+            </div>
+            <div class="card">
+              <h3>Launch coordination</h3>
+              <p>Streamlined launches in Notion so every image, post, and schedule had a clear home — reducing the
+                chance of anything going out missing or unscheduled.</p>
+              <span class="tag">Real business result</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ STAGE C 
+    <section class="section">
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="eyebrow">Where you are — 3 of 3</div>
+          <div class="state-head">
+            <h2>You see the vision but right now you're tangled up in the day-to-day.</h2>
+            <p>Your team keeps asking you things they should already know. You can't take a real day off without
+              everything backing up. Underneath the exhaustion is a quieter question — if it didn't all need to run
+              through you, what would your role even be?</p>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Payment follow-up SOP</h3>
+              <p>Built the process documentation that let the team follow up clients about payments without escalating
+                to the CEO — a recurring task that no longer needed her personal attention.</p>
+              <span class="tag">Real business result</span>
+            </div>
+            <div class="card">
+              <h3>End-to-end onboarding flow</h3>
+              <p>Designed the full path from signup to active community member — thank-you page, expectation-setting
+                email, and a group with guidelines and a scheduled kickoff — so no one needed a person to explain what
+                came next.</p>
+              <span class="tag">Real business result</span>
+            </div>
+            <div class="card">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" />
+                  <path d="M3 15l5-4 4 3 5-5 4 4" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+                <span>Add: Mandarin book / site photos</span>
+              </div>
+              <h3>A learning experience built for its audience</h3>
+              <p>A phrasebook and companion site built specifically around a 6–8 year old's world — the phrases they'd
+                actually use at lunchtime — so a child could engage without someone personally guiding them through it.
+                Informed by six months teaching English to children in Beijing.</p>
+              <span class="tag applied">Self-built project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+SKILLS
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="eyebrow">Skills &amp; tools</div>
+          <h2 style="font-size:clamp(26px,3vw,36px);margin-top:10px;">Pick a category.</h2>
+          <div class="skills-menu" role="tablist">
+            <button class="cat-btn active" data-cat="workflow">Workflow &amp; Systems</button>
+            <button class="cat-btn" data-cat="design">Design &amp; Content</button>
+            <button class="cat-btn" data-cat="dev">Development</button>
+            <button class="cat-btn" data-cat="business">Business &amp; Data</button>
+          </div>
+          <div class="skills-panel">
+            <div class="skills-panel-title" id="panel-title">Workflow &amp; Systems</div>
+
+            <div class="skill-list cat-panel" data-cat="workflow">
+              <div class="skill-row"><span class="name">SOP design</span><span class="yrs">~2 yrs</span></div>
+              <div class="skill-row"><span class="name">Onboarding / customer journey design</span><span class="yrs">~2
+                  yrs</span></div>
+              <div class="skill-row"><span class="name">Workflow management</span><span class="yrs">~3 yrs</span></div>
+              <div class="skill-row"><span class="name">Notion</span><span class="yrs">~2 yrs</span></div>
+              <div class="skill-row"><span class="name">Kartra</span><span class="yrs">~2 yrs</span></div>
+              <div class="skill-row"><span class="name">Monday.com</span><span class="yrs">~2 yrs</span></div>
+              <div class="skill-row"><span class="name">GitHub (Kanban / boards)</span><span class="yrs">~1 yr</span>
+              </div>
+            </div>
+
+            <div class="skill-list cat-panel" data-cat="design" style="display:none;">
+              <div class="skill-row"><span class="name">Canva (incl. AI image generation)</span><span class="yrs">~5
+                  yrs</span></div>
+              <div class="skill-row"><span class="name">Vector art</span><span class="yrs">Learning now</span></div>
+            </div>
+
+            <div class="skill-list cat-panel" data-cat="dev" style="display:none;">
+              <div class="skill-row"><span class="name">HTML / CSS / JavaScript</span><span class="yrs">~2 yrs</span>
+              </div>
+              <div class="skill-row"><span class="name">Svelte</span><span class="yrs">~1–1.5 yrs</span></div>
+              <div class="skill-row"><span class="name">AI-paired coding workflow</span><span class="yrs">~1 yr</span>
+              </div>
+            </div>
+
+            <div class="skill-list cat-panel" data-cat="business" style="display:none;">
+              <div class="skill-row"><span class="name">Google Sheets (incl. pivot tables)</span><span class="yrs">5+
+                  yrs</span></div>
+              <div class="skill-row"><span class="name">Xero (basics)</span><span class="yrs">Learning now</span></div>
+              <div class="skill-row"><span class="name">Microsoft Office</span><span class="yrs">Confident</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+  <script>
+    // Skills category menu
+    const catBtns = document.querySelectorAll('.cat-btn');
+    const panels = document.querySelectorAll('.cat-panel');
+    const panelTitle = document.getElementById('panel-title');
+    const titles = {
+      workflow: 'Workflow & Systems',
+      design: 'Design & Content',
+      dev: 'Development',
+      business: 'Business & Data'
+    };
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        panels.forEach(p => p.style.display = (p.dataset.cat === cat) ? 'grid' : 'none');
+        panelTitle.textContent = titles[cat];
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {e.target.classList.add('in'); io.unobserve(e.target);}
+        });
+      }, {threshold: 0.12});
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('in'));
+    }
+  </script>
+
+</body>
+
+</html>
