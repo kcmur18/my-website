@@ -13,13 +13,13 @@
 
   <style>
     :root {
-      --canvas: #ffe8c8;
+      --canvas: #fff0db;
       --canvas-deep: #7d3426;
       --card: #fef6ec;
       --ink: #340504;
       --ink-soft: #fdc193;
       --ink-softer: #f8d6ab;
-      --ink-softest: #ffe8c8;
+      --ink-softest: #fff0db;
       --thread: #e59a6f;
       --thread2: #ac603a;
       --line: #ffdecb;
@@ -40,7 +40,7 @@
       background: var(--canvas);
       color: var(--ink);
       font-family: "Inter", sans-serif;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -87,6 +87,18 @@
     }
 
     .projects1 h1 {
+      color: var(--canvas-deep);
+      font-size: 65px;
+      letter-spacing: 1px;
+    }
+
+    #stack-container {
+      color: var(--ink-softest);
+      font-size: 65px;
+      letter-spacing: 1px;
+    }
+
+    #stack-h1 {
       color: var(--ink-softer);
       font-size: 65px;
       letter-spacing: 1px;
@@ -308,7 +320,7 @@
     }
 
     #hero-h2 {
-      font-size: 30px;
+      font-size: 32px;
     }
 
     .sub {
@@ -325,16 +337,22 @@
     #validation-sub {
       color: var(--ink);
       font-size: 22px;
+      margin-bottom: 26px;
+
     }
 
     .how-sub {
       color: var(--ink);
       font-size: 22px;
+      margin-bottom: 26px;
+
     }
 
     .how-card sub {
       color: var(--ink);
       font-size: 22px;
+      margin-bottom: 26px;
+
     }
 
     #projects-sub {
@@ -344,9 +362,14 @@
     }
 
     #projects1-sub {
-      color: var(--ink-softest);
-      font-size: 20px;
+      color: var(--ink);
+      font-size: 22px;
       margin-bottom: 26px;
+    }
+
+    #stack-container {
+      color: var(--ink-softest);
+      font-size: 22px;
     }
 
     #contact-sub {
@@ -376,7 +399,6 @@
 
     .photo-placeholder {
       border: 1.5px dashed var(--ink-soft);
-      border-radius: var(--radius);
       background: var(--card);
       aspect-ratio: 4/5;
       display: flex;
@@ -424,7 +446,6 @@
     }
 
     .img-placeholder {
-      border-radius: 10px;
       background: var(--canvas);
       aspect-ratio: 16/10;
       display: flex;
@@ -452,7 +473,6 @@
     .img-swap {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
       aspect-ratio: 16/12;
       margin-bottom: 16px;
     }
@@ -479,7 +499,8 @@
     .validation,
     .projects,
     .projects1,
-    #how-i-work {
+    #how-i-work,
+    #stack-container {
       text-align: center;
     }
 
@@ -488,7 +509,7 @@
     }
 
     .projects1 {
-      background-color: var(--canvas-deep);
+      background-color: var(--canvas);
     }
 
     .grid {
@@ -500,7 +521,6 @@
     .box {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 10px;
       padding: 28px 24px;
       position: relative;
       overflow: hidden;
@@ -519,7 +539,7 @@
 
     .box-label {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--thread);
@@ -582,9 +602,8 @@
     }
 
     .card {
-      background: var(--canvas);
+      background: var(--ink);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
       padding: 25px;
       display: flex;
       flex-direction: column;
@@ -597,15 +616,16 @@
 
     .card h2 {
       margin-top: 20px;
-      font-size: 30px;
-      color: var(--thread2);
+      font-size: 32px;
+      color: var(--ink-softest);
     }
 
     .card p {
-      color: var(--ink);
+      color: var(--ink-softer);
       font-size: 18px;
       flex: 1;
-      padding: 0px 3px;
+      margin: 15px 25px;
+      padding: 5px;
     }
 
     .tag {
@@ -642,21 +662,28 @@
     /* ---------- HOW I WORK ---------- */
     .how-grid {
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 26px;
       margin-top: 36px;
     }
 
     @media (max-width:760px) {
       .how-grid {
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
       }
     }
 
     .how-card {
       border: 1px solid var(--line);
-      border-radius: var(--radius);
       padding: 25px;
+      background: var(--thread2);
+    }
+
+    #how-card1 {
+      background: var(--canvas-deep);
+    }
+
+    #how-card3 {
       background: var(--ink);
     }
 
@@ -670,7 +697,7 @@
     .how-card h2 {
       margin-top: 10px;
       color: var(--ink-softest);
-      font-size: 30px;
+      font-size: 32px;
     }
 
     .how-card p {
@@ -684,6 +711,85 @@
       font-size: 17px;
       color: var(--ink-soft);
     }
+
+    /*Assets*/
+    .stack-section {
+      position: relative;
+      width: 100%;
+      padding-bottom: 10vh;
+    }
+
+    /* Centers the card deck on the screen */
+    .stack-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      background-color: var(--canvas-deep);
+    }
+
+    /* The individual cards */
+    .stack-card {
+      position: sticky;
+      top: 15vh;
+      margin-bottom: 10px;
+
+      display: flex;
+      width: 100%;
+      height: 65vh;
+
+      background: var(--canvas);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Internal Card Layout Split */
+    .card-content {
+      flex: 1;
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-visual {
+      flex: 1;
+      background: var(--canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Typography Details */
+    .card-num {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--thread2);
+      margin-bottom: 1rem;
+    }
+
+    .card-content h2 {
+      font-size: 32px;
+      margin-bottom: 1.5rem;
+      color: var(--thread2);
+    }
+
+    .card-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .visual-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #f0ede9;
+      /* Subtle fallback colour */
+    }
+
 
     /* ---------- SKILLS ---------- */
     .skills-menu {
@@ -740,7 +846,7 @@
     }
 
     .skill-row .name {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 15.5px;
     }
 
@@ -773,7 +879,7 @@
 
     .about-content {
       padding: 88px clamp(24px, 6vw, 72px);
-      margin: 30px 0px;
+      margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -795,7 +901,7 @@
     }
 
     .about-text p {
-      font-size: 20px;
+      font-size: 22px;
       color: var(--ink-softer);
       margin-bottom: 16px;
     }
@@ -844,10 +950,6 @@
       transform: translateY(0);
     }
 
-    .sub {
-      font-size: 20px;
-    }
-
     .card p {
       padding: 0px;
     }
@@ -874,13 +976,7 @@
       padding-right: 20px;
     }
 
-    #validation-sub,
-    #projects-sub,
-    #projects1-sub,
-    #contact-sub,
-    #how-i-work sub {
-      font-size: 20px;
-    }
+
 
     @media (max-width: 900px) {
 
@@ -907,7 +1003,7 @@
       }
 
       .hero h1 {
-        font-size: 40px;
+        font-size: 60px;
       }
 
       .validation h1,
@@ -915,7 +1011,8 @@
       .projects h1,
       .projects1 h1,
       .contact h1,
-      #how-i-work h1 {
+      #how-i-work h1,
+      #stack-h1 {
         font-size: 35px;
       }
 
@@ -926,7 +1023,8 @@
 
       .how-card h2,
       .card h2,
-      .state-head h2 {
+      .state-head h2,
+      .card-content h2 {
         font-size: 25px;
         line-height: 1.1;
       }
@@ -982,9 +1080,23 @@
         padding: 0px 20px 20px;
       }
 
+      .about-text p,
+      .sub,
+      .how-sub,
+      #contact-sub,
+      #stack-sub,
+      #projects1-sub {
+        font-size: 20px;
+      }
+
       .how-card .sub {
         margin-bottom: 16px;
         padding: 0px 15px;
+      }
+
+      .stack-card {
+        height: 100vh;
+        top: 5vh;
       }
     }
 
@@ -1030,9 +1142,9 @@
           </div>
         </div>
         <div class="hero-content reveal">
-          <div class="eyebrow hero-eyebrow" id="hero-h2">Feel Grounded. Uncap Your Capacity.</div>
+          <div class="eyebrow hero-eyebrow" id="hero-h2">Get Clarity. Uncap Your Capacity.</div>
           <h1>Step Into What's Next</h1>
-          <p class="sub">With strategic partnership and digital systems for shifting from being bottlenecked by "more of
+          <p class="sub" id="hero-sub">With strategic partnership and digital systems for shifting from "more of
             the same" into your next level.
           </p>
           <div class="cta-row">
@@ -1042,7 +1154,7 @@
       </div>
     </section>
 
-    <!--VALIDATION-->
+    <!--VALIDATION
     <section class="section validation" id="validation">
       <div class="wrap reveal">
         <h1>Back Yourself at a New Level</h1>
@@ -1059,91 +1171,38 @@
           grounded in deserve it.
         </p>
       </div>
-    </section>
-
-    <!--PROJECTS-->
-    <section class="section projects1" id="projects1">
-      <div class="wrap reveal">
-        <h1>Featured Projects</h1>
-        <p class="sub" id="projects1-sub">See examples of elevating digital systems so that focus and energy are where
-          they are most needed.
-        </p>
-      </div>
-
-      <!--STAGE A-->
-      <div class="wrap">
-        <div class="section-inner reveal">
-
-          <div class="card-grid">
-            <div class="card">
-              <div class="img-swap">
-                <img class="img-a" src="website-2.png" alt="cover">
-                <img class="img-b" src="website-1.png" alt="mockup">
-              </div>
-              <h2>Reimagining the Customer and Workflow Experience</h2>
-              <p>A website isn't just a set of pages. It's a space where customers land, navigate options and
-                make decisions. It's where they think "this is for me" or get overwhelmed. Where they feel guided or
-                confused. And where queries, orders and requests are sent to the team behind-the-scenes.</p>
-              <p>This project took a website from pretty pages to playful, guiding digital shopfront with built-in
-                workflow.</p>
-              <!--<div class="tags">
-                <span class="tag applied">Workflow Management</span>
-                <span class="tag applied">Customer Experience</span>
-              </div>-->
-            </div>
-            <div class="card">
-              <div class="img-swap">
-                <img class="img-a" src="website-image.png" alt="cover">
-                <img class="img-b" src="website-image.png" alt="mockup">
-              </div>
-              <h2>From Scattered Reachouts to Strategic Relationship-Building</h2>
-              <p>During launches, summits, and network-building, having a system for building the right relationships
-                can make the difference between spinning your wheels vs developing high-quality connections.</p>
-
-              <p>This project took relationship building from scattered reachouts with messy tracking to a strategic
-                system that begins with knowing why relationships are being built.</p>
-              <!--<div class="tags">
-                <span class="tag">Progress Tracking</span>
-                <span class="tag">Operations Improvement</span>
-              </div>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </section>-->
 
     <!--HOW I WORK -->
     <section class="section alt" id="how-i-work">
       <div class="wrap">
         <div class="section-inner reveal">
-          <h1>Where I Can Plug In</h1>
-          <p class="how-sub">I bring strategic thinking, operational insights and digial skills that help founders step
-            into what's next.</p>
+          <h1>Back Yourself at a New Level</h1>
+          <p class="how-sub">Businesses go through phases. You're ready for the next one. But until now,
+            you've been standing at the edge of that, hesitating because you know your current setup isn't designed for
+            what's next. It's built to support what you've done until now. And if you take your hands off those levers
+            to shift into the next phase, who's going to pull them instead?
+
+            It's not about doing more. It's about creating the foundations at a new level.
+          </p>
           <div class="how-grid">
-            <div class="how-card">
-              <h2>Strategic Partnership</h2>
-              <p class="sub"><b>Think bigger. Decide clearly. Move into what’s next.</b></p>
-
-              <p class="sub">A strategic sounding board for when you know something needs to
-                change, but you're too close to know what. I help you connect the dots you're missing, identify
-                bottlenecks in your blindspot, and
-                turn big-picture thinking into action.</p>
+            <div class="how-card" id="how-card1">
+              <h2>See From a Higher Vantage Point</h2>
+              <p class="sub">So you can see the fuller picture of how everything connects.</p>
             </div>
-            <div class="how-card">
-              <h2>Digital Systems</h2>
-              <p class="sub"><b>Design the systems that give your capacity back.</b>
-
-              <p class="sub">Websites, workflows and digital processes designed around how your business actually works
-                and
-                where it's going next.
-
-                I simplify what's scattered, untangle what's clunky, and create digital systems that elevate how you
-                work.</p>
+            <div class="how-card" id="how-card2">
+              <h2>Elevate Your Processes</h2>
+              <p class="sub">So your capacity and bandwidth are freed up to be refocussed.</p>
+            </div>
+            <div class="how-card" id="how-card3">
+              <h2>Set Up Systems for What's Next</h2>
+              <p class="sub">Because you know you're ready to shift into the next level.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <!--PROJECTS B
     <section class="section projects" id="projects">
@@ -1205,6 +1264,119 @@
         </div>
     </section>-->
 
+    <section class="section stack-container" id="stack-container">
+      <div class="wrap reveal">
+        <div class="section-inner reveal">
+          <h1 id="stack-h1">Elevate Your Processes</h2>
+            <p id="stack-sub">Redesign how the business works so energy can move from knee-jerking
+              and feeling pulled in different directions to what will make an actual difference. See examples below.</p>
+
+            <!-- CARD 01 -->
+            <div class="stack-card" id="card-1">
+              <div class="card-content">
+                <span class="card-num">01</span>
+                <h2>A Centralised 'Second Brain'</h2>
+                <p>Get what's currently living in your head into a space you can see, share and use.
+
+                  Your knowledge, decisions, ideas, context and ways of working are stored where only you
+                  have access. Create a second brain for the business that captures what matters, makes it easy to find
+                  and
+                  gives others access to the knowledge they need.</p>
+              </div>
+              <!--<div class="card-visual">
+              <div class="visual-placeholder workflow-mockup"></div>
+            </div>-->
+            </div>
+
+            <!-- CARD 02 -->
+            <div class="stack-card" id="card-2">
+              <div class="card-content">
+                <span class="card-num">02</span>
+                <h2>Ownership-Centred Workflows</h2>
+                <p>Build ownership into the way your team operates, instead of everything coming back to you.
+
+                  When one person has to delegate and decide, work gets
+                  stuck.
+
+                  Redesign workflows around realms of ownership, so people aren't just responsible for tasks
+                  —
+                  they're responsible for keeping their area moving, spotting hold-ups and proposing solutions.</p>
+              </div>
+              <!--<div class="card-visual">
+              <div class="visual-placeholder workflow-mockup"></div>
+            </div>-->
+            </div>
+
+            <!-- CARD 03 -->
+            <div class="stack-card" id="card-3">
+              <div class="card-content">
+                <span class="card-num">03</span>
+                <h2>Standardised Systems</h2>
+                <p>Systemise how things get done, even when you're not there.
+
+                  When the same questions and processes come up repeatedly, the answers shouldn't depend on who
+                  happens to be available.
+
+                  Build clear, repeatable ways of working so processes can be picked up by someone else, common issues
+                  can
+                  be handled without escalation and the business doesn't have to reinvent the answer every time.</p>
+              </div>
+              <!--<div class="card-visual">
+              <div class="visual-placeholder workflow-mockup"></div>
+            </div>-->
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!--PROJECTS-->
+    <section class="section projects1" id="projects1">
+      <div class="wrap reveal">
+        <h1>Set Up Systems for What's Next</h1>
+        <p class="sub" id="projects1-sub">Getting a higher vantage point gives you a fuller picture. Elevating your
+          processes gets your capacity back. Building systems for growth will actually get you to that next level.
+        </p>
+      </div>
+
+      <!--STAGE A-->
+      <div class="wrap">
+        <div class="section-inner reveal">
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="website-example2.png" alt="cover">
+                <img class="img-b" src="website-example1.png" alt="mockup">
+              </div>
+              <h2>Growing From Time-Capped to Structured Ladder of Offers</h2>
+              <p>When the signature offer starts feeling like a bottleneck for growth, there are options. This project
+                took a photographer from one main offer to a ladder of offers that provide flexibility and
+                serve clients at different levels.</p>
+              <!--<div class="tags">
+                <span class="tag applied">Workflow Management</span>
+                <span class="tag applied">Customer Experience</span>
+              </div>-->
+            </div>
+            <div class="card">
+              <div class="img-swap">
+                <img class="img-a" src="example3.png" alt="cover">
+                <img class="img-b" src="example5.png" alt="mockup">
+              </div>
+              <h2>Shifting From "Spaghetti at the Wall" to Strategic Clarity</h2>
+              <p>If you feel like you're being pulled between platforms trying to find your footing, there are
+                strategies that can help. This project took a language teacher from one of many options to the go-to for
+                her unique philosophy
+                and style of teaching.</p>
+              <!--<div class="tags">
+                <span class="tag">Progress Tracking</span>
+                <span class="tag">Operations Improvement</span>
+              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section class="section alt" id="intro">
       <div class="about-split">
@@ -1225,7 +1397,7 @@
               Whether you need a strategic brain to help shape the next move or someone who can get into the detail and
               make it happen, I bring both the higher level thinking and hands-on implementation.</p>
 
-            <p>A strategic partner who can see the bigger picture and get stuck in.</p>
+            <p>A strategic partner who sees the fuller picture and gets stuck in.</p>
           </div>
         </div>
         <div class="about-visual reveal">
@@ -1240,7 +1412,8 @@
     <section class="section contact" id="contact">
       <div class="wrap reveal">
         <h1>Let's Connect</h1>
-        <p id="contact-sub">If you’re at a point where you need to step back, figure out what’s next and shift your trajectory, let’s talk. Bring me the messy version—I’m good at finding the shape in it.
+        <p id="contact-sub">If you’re at a point where you need to step back, figure out what’s next and shift your
+          trajectory, let’s talk. Bring me the messy version. I’m good at shaping what's needed.
         </p>
         <div class="cta-row">
           <a href="https://www.linkedin.com/in/kaiacmurray/" target="_blank" rel="noopener noreferrer" class="btn"
